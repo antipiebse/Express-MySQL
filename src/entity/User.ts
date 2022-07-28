@@ -1,18 +1,37 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import {
+  Entity,
+  Column,
+  OneToMany,
+  DeleteDateColumn,
+  CreateDateColumn,
+} from 'typeorm';
+import { Board } from './Board';
+import { PrimaryColumn } from 'typeorm';
+import { Comment } from './Comment';
 
 @Entity()
 export class User {
+  @PrimaryColumn()
+  email!: string;
 
-    @PrimaryGeneratedColumn()
-    id: number
+  @Column({ select: false })
+  password!: string;
 
-    @Column()
-    firstName: string
+  @Column()
+  nickname!: string;
 
-    @Column()
-    lastName: string
+  @Column()
+  phone!: string;
 
-    @Column()
-    age: number
+  @OneToMany(() => Board, (board) => board.user)
+  boards!: Board[];
 
+  @OneToMany(() => Comment, (comment) => comment.user)
+  comments!: Comment[];
+
+  @CreateDateColumn()
+  createdAt!: Date;
+
+  @DeleteDateColumn()
+  deletedAt!: Date;
 }
