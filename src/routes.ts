@@ -1,23 +1,92 @@
-import { UserController } from "./controller/UserController"
+import { BoardController } from './controllers/boards';
+import { UserController } from './controllers/users';
 
-export const Routes = [{
-    method: "get",
-    route: "/users",
+export const Routes = [
+  //-----------------------------------------
+  // User API
+  //-----------------------------------------
+  {
+    method: 'get',
+    route: '/users',
     controller: UserController,
-    action: "all"
-}, {
-    method: "get",
-    route: "/users/:id",
+    action: 'all',
+  },
+  {
+    method: 'get',
+    route: '/users/:email',
     controller: UserController,
-    action: "one"
-}, {
-    method: "post",
-    route: "/users",
+    action: 'one',
+  },
+  {
+    method: 'post',
+    route: '/users',
     controller: UserController,
-    action: "save"
-}, {
-    method: "delete",
-    route: "/users/:id",
+    action: 'save',
+  },
+  {
+    method: 'delete',
+    route: '/users/:id',
     controller: UserController,
-    action: "remove"
-}]
+    action: 'remove',
+  },
+  {
+    method: 'put',
+    route: '/users/:email',
+    controller: UserController,
+    action: 'update',
+  },
+  //-----------------------------------------
+  // Board API
+  //-----------------------------------------
+  {
+    method: 'get',
+    route: '/boards',
+    controller: BoardController,
+    action: 'all',
+  },
+  {
+    method: 'get',
+    route: '/boards/:id',
+    controller: BoardController,
+    action: 'one',
+  },
+  {
+    method: 'post',
+    route: '/boards',
+    controller: BoardController,
+    action: 'save',
+  },
+  {
+    method: 'delete',
+    route: '/boards/:id',
+    controller: BoardController,
+    action: 'remove',
+  },
+  {
+    method: 'put',
+    route: '/boards/:id',
+    controller: BoardController,
+    action: 'update',
+  },
+  //-----------------------------------------
+  // Comment API
+  //-----------------------------------------
+  {
+    method: 'post',
+    route: '/boards/:boardId/comments/',
+    controller: BoardController,
+    action: 'save',
+  },
+  {
+    method: 'delete',
+    route: '/boards/:boardId/comments/:commentId',
+    controller: BoardController,
+    action: 'remove',
+  },
+  {
+    method: 'put',
+    route: '/boards/:boardId/comments/:commentId',
+    controller: BoardController,
+    action: 'update',
+  },
+];
