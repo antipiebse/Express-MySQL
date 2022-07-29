@@ -1,3 +1,4 @@
+import { BoardController } from './controller/BoardController';
 import { UserController } from './controller/UserController';
 
 export const Routes = [
@@ -34,43 +35,44 @@ export const Routes = [
     controller: UserController,
     action: 'update',
   },
+  //-----------------------------------------
+  // Board API
+  //-----------------------------------------
+  {
+    method: 'get',
+    route: '/boards',
+    controller: BoardController,
+    action: 'all',
+  },
+  {
+    method: 'get',
+    route: '/boards/:id',
+    controller: BoardController,
+    action: 'one',
+  },
+  {
+    method: 'post',
+    route: '/boards',
+    controller: BoardController,
+    action: 'save',
+  },
+  {
+    method: 'delete',
+    route: '/boards/:id',
+    controller: BoardController,
+    action: 'remove',
+  },
+  {
+    method: 'put',
+    route: '/boards/:id',
+    controller: BoardController,
+    action: 'update',
+  },
 ];
-//   //-----------------------------------------
-//   // Board API
-//   //-----------------------------------------
-//   {
-//     method: 'get',
-//     route: '/boards',
-//     controller: BoardController,
-//     action: 'all',
-//   },
-//   {
-//     method: 'get',
-//     route: '/boards/:id',
-//     controller: BoardController,
-//     action: 'one',
-//   },
-//   {
-//     method: 'post',
-//     route: '/boards',
-//     controller: BoardController,
-//     action: 'save',
-//   },
-//   {
-//     method: 'delete',
-//     route: '/boards/:id',
-//     controller: BoardController,
-//     action: 'remove',
-//   },
-//   {
-//     method: 'put',
-//     route: '/boards/:id',
-//     controller: BoardController,
-//     action: 'update',
-//   },
-//   //-----------------------------------------
-//   // Comment API
-//   //-----------------------------------------
+
+//-----------------------------------------
+// Comment API
+//-----------------------------------------
 //   {
 //     method: 'post',
 //     route: '/boards/:boardId/comments/',
