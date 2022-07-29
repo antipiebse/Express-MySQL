@@ -1,3 +1,4 @@
+import { CommentController } from './controller/CommentController';
 import { BoardController } from './controller/BoardController';
 import { UserController } from './controller/UserController';
 
@@ -68,27 +69,31 @@ export const Routes = [
     controller: BoardController,
     action: 'update',
   },
+  // -----------------------------------------
+  // Comment API
+  // -----------------------------------------
+  {
+    method: 'post',
+    route: '/boards/:boardId/comments',
+    controller: CommentController,
+    action: 'save',
+  },
+  {
+    method: 'get',
+    route: '/boards/:boardId/comments',
+    controller: CommentController,
+    action: 'all',
+  },
+  {
+    method: 'delete',
+    route: '/boards/:boardId/comments/:commentId',
+    controller: CommentController,
+    action: 'remove',
+  },
+  {
+    method: 'put',
+    route: '/boards/:boardId/comments/:commentId',
+    controller: CommentController,
+    action: 'update',
+  },
 ];
-
-//-----------------------------------------
-// Comment API
-//-----------------------------------------
-//   {
-//     method: 'post',
-//     route: '/boards/:boardId/comments/',
-//     controller: BoardController,
-//     action: 'save',
-//   },
-//   {
-//     method: 'delete',
-//     route: '/boards/:boardId/comments/:commentId',
-//     controller: BoardController,
-//     action: 'remove',
-//   },
-//   {
-//     method: 'put',
-//     route: '/boards/:boardId/comments/:commentId',
-//     controller: BoardController,
-//     action: 'update',
-//   },
-// ];

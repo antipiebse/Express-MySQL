@@ -6,7 +6,6 @@ import {
   Entity,
   ManyToOne,
   PrimaryGeneratedColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 import { Board } from './Board';
 
@@ -34,9 +33,6 @@ export class Comment {
 
   @CreateDateColumn()
   createdAt!: Date;
-
-  @UpdateDateColumn()
-  updatedAt!: Date;
 
   @DeleteDateColumn()
   deletedAt!: Date;

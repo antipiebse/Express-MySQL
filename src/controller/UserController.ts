@@ -23,12 +23,20 @@ export class UserController {
   }
 
   async save(req: Request, res: Response): Promise<User> {
+    // 이미 존재하는 이메일인지 확인
+    const checkedUser = await this.userRepository.findOne({
+      email: req.body.email,
+    });
+    if (checkedUser) throw new Error('BadRequest');
+
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-    return await this.userRepository.save({
-      ...req.body,
-      password: hashedPassword,
-    });
+    await this.userRepository.save({ ...req.body, password: hashedPassword });
+
+    const user = await this.userRepository.findOne({ email: req.body.email });
+    if (!user) throw new Error('BadRequest');
+
+    return user;
   }
 
   async remove(req: Request, res: Response): Promise<boolean> {
