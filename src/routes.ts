@@ -1,5 +1,4 @@
-import { BoardController } from './controllers/boards';
-import { UserController } from './controllers/users';
+import { UserController } from './controller/UserController';
 
 export const Routes = [
   //-----------------------------------------
@@ -25,7 +24,7 @@ export const Routes = [
   },
   {
     method: 'delete',
-    route: '/users/:id',
+    route: '/users/:email',
     controller: UserController,
     action: 'remove',
   },
@@ -35,58 +34,59 @@ export const Routes = [
     controller: UserController,
     action: 'update',
   },
-  //-----------------------------------------
-  // Board API
-  //-----------------------------------------
-  {
-    method: 'get',
-    route: '/boards',
-    controller: BoardController,
-    action: 'all',
-  },
-  {
-    method: 'get',
-    route: '/boards/:id',
-    controller: BoardController,
-    action: 'one',
-  },
-  {
-    method: 'post',
-    route: '/boards',
-    controller: BoardController,
-    action: 'save',
-  },
-  {
-    method: 'delete',
-    route: '/boards/:id',
-    controller: BoardController,
-    action: 'remove',
-  },
-  {
-    method: 'put',
-    route: '/boards/:id',
-    controller: BoardController,
-    action: 'update',
-  },
-  //-----------------------------------------
-  // Comment API
-  //-----------------------------------------
-  {
-    method: 'post',
-    route: '/boards/:boardId/comments/',
-    controller: BoardController,
-    action: 'save',
-  },
-  {
-    method: 'delete',
-    route: '/boards/:boardId/comments/:commentId',
-    controller: BoardController,
-    action: 'remove',
-  },
-  {
-    method: 'put',
-    route: '/boards/:boardId/comments/:commentId',
-    controller: BoardController,
-    action: 'update',
-  },
 ];
+//   //-----------------------------------------
+//   // Board API
+//   //-----------------------------------------
+//   {
+//     method: 'get',
+//     route: '/boards',
+//     controller: BoardController,
+//     action: 'all',
+//   },
+//   {
+//     method: 'get',
+//     route: '/boards/:id',
+//     controller: BoardController,
+//     action: 'one',
+//   },
+//   {
+//     method: 'post',
+//     route: '/boards',
+//     controller: BoardController,
+//     action: 'save',
+//   },
+//   {
+//     method: 'delete',
+//     route: '/boards/:id',
+//     controller: BoardController,
+//     action: 'remove',
+//   },
+//   {
+//     method: 'put',
+//     route: '/boards/:id',
+//     controller: BoardController,
+//     action: 'update',
+//   },
+//   //-----------------------------------------
+//   // Comment API
+//   //-----------------------------------------
+//   {
+//     method: 'post',
+//     route: '/boards/:boardId/comments/',
+//     controller: BoardController,
+//     action: 'save',
+//   },
+//   {
+//     method: 'delete',
+//     route: '/boards/:boardId/comments/:commentId',
+//     controller: BoardController,
+//     action: 'remove',
+//   },
+//   {
+//     method: 'put',
+//     route: '/boards/:boardId/comments/:commentId',
+//     controller: BoardController,
+//     action: 'update',
+//   },
+// ];
